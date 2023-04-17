@@ -6,23 +6,23 @@ class Baum<E extends Comparable>{
 	Baum(E x){ self = x;}
 
 	boolean enthaelt(E x){
-		if (self.compareTo(x) >  0){ // self < x
+		if (self.compareTo(x) >  0){ // self > x
 			if(links == null) return false;
 			return links.enthaelt(x);
 		}
-		if (self.compareTo(x) < 0){ // self > x
+		if (self.compareTo(x) < 0){ // self < x
 			if(rechts == null) return false;
 			return rechts.enthaelt(x);
 		}
 		return self.equals(x);
 	}
 	void einfuegen(E x){
-		if (self.compareTo(x) >=0){
+		if (self.compareTo(x) > 0){  // self > x
 			if(links == null)
 				links = new Baum<E>(x);
 			else
 				links.einfuegen(x);
-		}else{
+		}else{						// self < x
 			if(rechts == null)
 				rechts = new Baum<E>(x);
 			else
@@ -47,6 +47,7 @@ class Baum<E extends Comparable>{
 		b.einfuegen(3);
 		
 		System.out.println(b);
+		
 		
 	}
 }

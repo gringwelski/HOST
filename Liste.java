@@ -3,7 +3,9 @@ class Liste<E>{
 	private Liste<E> next;
 	Liste(E e){ self = e;}
 	boolean enthaelt(E x){
-		return self.equals(x) || next.enthaelt(x);
+		if(self.equals(x)) return true; 
+		if(next == null) return false;
+		return next.enthaelt(x);
 	}
 	void einfuegen(E x){
 		if(next == null)
@@ -23,7 +25,7 @@ class Liste<E>{
 		Liste<Integer> l = new Liste<>(1);
 		l.einfuegen(2);
 		l.einfuegen(3);
-		System.out.println(l);
+		System.out.println(l.toString()+l.enthaelt(2));
 		
 	}
 	
