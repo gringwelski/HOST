@@ -16,21 +16,7 @@ class Baum<E extends Comparable>{
 		}
 		return self.equals(x);
 	}
-	void einfuegen(E x){
-		if (self.compareTo(x) > 0){  // self > x
-			if(links == null)
-				links = new Baum<E>(x);
-			else
-				links.einfuegen(x);
-		}else{						// self < x
-			if(rechts == null)
-				rechts = new Baum<E>(x);
-			else
-				rechts.einfuegen(x);
-		}
-		
-	}
-	
+
 	public String toString(){
 		String l="";
 		String r="";
